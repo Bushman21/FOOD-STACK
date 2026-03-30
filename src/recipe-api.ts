@@ -1,3 +1,6 @@
+import dotenv from "dotenv";
+dotenv.config();
+
 const API_KEY = process.env.API_KEY;
 export const searchRecipes = async (searchTerm: string, page: number) => {
   if (!API_KEY) {
@@ -8,10 +11,10 @@ export const searchRecipes = async (searchTerm: string, page: number) => {
   const url = new URL(baseURL);
 
   const queryParams = {
-    apiKey: API_KEY,
+    apiKey: API_KEY, 
     query: searchTerm,
     number: "10",
-    offset: (page * 10).toString()
+    offset: ((page - 1) * 10).toString()
   };
 
   url.search = new URLSearchParams(queryParams).toString();

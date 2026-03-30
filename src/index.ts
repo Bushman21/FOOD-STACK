@@ -8,11 +8,20 @@ app.use(express.json());
 app.use(cors());
 
 app.get("/api/recipes/search", async (req, res) => {
-  const searchTerm = req.query.searchTerm as string;
-  const page = parseInt(req.query.page as string);
+  try {
+    const searchTerm = req.query.searchTerm as string;
+    const page = parseInt(req.query.page as string) || 1;
 
-  const results = RecipeAPI.searchRecipes(searchTerm, page);
-  return res.json(results);
+    if (!searchTerm) {
+      return res.status(400).json({ error: "searchTerm is required" });
+    }
+
+    const results = await RecipeAPI.searchRecipes(searchTerm, page);
+    return res.json(results);
+  } catch (error: any) {
+    console.error("🔥 ERROR:", error);
+    return res.status(500).json({ error: error.message });
+  }
 });
 
 app.listen(5000, () => {
