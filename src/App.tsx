@@ -1,7 +1,7 @@
-// src/App.tsx
-import "./App.css";
+import React from 'react';
+
 const App = () => {
-  return <div>Hello from Recipe App</div>;
+  return <div>Hello Bushman</div>;
 };
 
 export default App;
