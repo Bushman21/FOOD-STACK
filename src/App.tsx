@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { useState } from "react";
 
 const App = () => {
-  return <div>Hello Bushman</div>;
-};
+  const [searchTerm, setSearchTerm] = useState("");
+  const [recipes, setRecipes] = useState([]);
 
-export default App;
+  // ... rest of your component
+};
