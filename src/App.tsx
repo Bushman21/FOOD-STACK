@@ -1,8 +1,14 @@
-import React, { useState } from "react";
+// src/API.ts
+const searchRecipes = async (searchTerm: string, page: number) => {
+  const baseURL = new URL("http://localhost:5000/api/recipes/search");
+  baseURL.searchParams.append("searchTerm", searchTerm);
+  baseURL.searchParams.append("page", page.toString());
 
-const App = () => {
-  const [searchTerm, setSearchTerm] = useState("");
-  const [recipes, setRecipes] = useState([]);
+  const response = await fetch(baseURL.toString());
 
-  // ... rest of your component
+  if (!response.ok) {
+    throw new Error(`HTTP Error: ${response.status}`);
+  }
+
+  return response.json();
 };
