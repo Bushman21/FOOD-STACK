@@ -1,14 +1,18 @@
-// src/API.ts
-const searchRecipes = async (searchTerm: string, page: number) => {
-  const baseURL = new URL("http://localhost:5000/api/recipes/search");
-  baseURL.searchParams.append("searchTerm", searchTerm);
-  baseURL.searchParams.append("page", page.toString());
+import React, { useState, FormEvent } from "react";
+import { searchRecipes } from "./API";
 
-  const response = await fetch(baseURL.toString());
+const App = () => {
+  // ... previous state setup
 
-  if (!response.ok) {
-    throw new Error(`HTTP Error: ${response.status}`);
-  }
+  const handleSearchSubmit = async (event: FormEvent) => {
+    event.preventDefault();
 
-  return response.json();
+    try {
+      const { results } = await searchRecipes(searchTerm, 1);
+      setRecipes(results);
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
 };
