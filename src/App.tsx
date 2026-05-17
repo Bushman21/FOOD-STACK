@@ -14,5 +14,18 @@ const App = () => {
       console.error(error);
     }
   };
-
+return (
+    <div>
+      <form onSubmit={handleSearchSubmit}>
+        <button type="submit">Submit</button>
+      </form>
+      {recipes.map((recipe) => (
+        <div key={recipe.id}>
+          Recipe Image Location: {recipe.image}
+          <br />
+          Recipe Title: {recipe.title}
+        </div>
+      ))}
+    </div>
+  );
 };
