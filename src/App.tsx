@@ -1,5 +1,6 @@
 import React, { useState, FormEvent } from "react";
 import { searchRecipes } from "./API";
+import { Recipe } from './types';
 
 const App = () => {
   // ... previous state setup
