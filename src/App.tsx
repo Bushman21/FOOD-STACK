@@ -3,8 +3,8 @@ import { searchRecipes } from "./API";
 import { Recipe } from './types';
 
 const App = () => {
-  // ... previous state setup
-
+  const [searchTerm, setSearchTerm] = useState("");
+  const [recipes, setRecipes] = useState<Recipe[]>([]);
   const handleSearchSubmit = async (event: FormEvent) => {
     event.preventDefault();
 
@@ -27,7 +27,7 @@ return (
         />
         <button type="submit">Submit</button>
       </form>
-      {/* ... rest of the code */}
+  
     </div>
   );
 };
