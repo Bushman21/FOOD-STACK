@@ -1,6 +1,7 @@
 import React, { useState, FormEvent } from "react";
 import { searchRecipes } from "./API";
 import { Recipe } from './types';
+import RecipeCard from "./components/RecipeCard";
 
 const App = () => {
   const [searchTerm, setSearchTerm] = useState("");
