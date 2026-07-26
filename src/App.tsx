@@ -1,6 +1,6 @@
 // src/App.tsx
 const App = () => {
-  return <div>Hello from Recipe App</div>;
+  return <div>Hey there Iam Bush</div>;
 };
 
 export default App;
