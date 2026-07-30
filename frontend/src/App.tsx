@@ -1,6 +1,6 @@
 // src/App.tsx
-import React, { FormEvent, useState } from "react";
-import { searchRecipes } from "./API";
+import React, {useState } from "react";
+import { searchRecipes } from "./api";
 
 // Define a type/interface for your recipe objects
 interface Recipe {

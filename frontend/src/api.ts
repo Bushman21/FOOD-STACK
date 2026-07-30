@@ -1,5 +1,5 @@
 // src/API.ts
-const searchRecipes = async (searchTerm: string, page: number) => {
+export const searchRecipes = async (searchTerm: string, page: number) => {
   const baseURL = new URL("http://localhost:5000/api/recipes/search");
   baseURL.searchParams.append("searchTerm", searchTerm);
   baseURL.searchParams.append("page", page.toString());
@@ -13,4 +13,3 @@ const searchRecipes = async (searchTerm: string, page: number) => {
   return response.json();
 };
 
-export { searchRecipes };
